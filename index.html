@@ -4,24 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Verdulería Henry | Turrialba</title>
-  <link rel="icon" href="Imagenes/Logo3.png" type="image/png">
+  <link rel="icon" href="imagenes/logo3.png" type="image/png">
   <link rel="stylesheet" href="style.css">
-  <style>
-  </style>
 </head>
 <body>
   <header>
-    <img src="Imagenes/Logo3.png" alt="Logo Verdulería Henry">
+    <img src="imagenes/logo3.png" alt="Logo Verdulería Henry">
     <h1>Verdulería Henry</h1>
     <p>Del campo a tu mesa, con el sabor de San Antonio de Turrialba</p>
   </header>
 
   <!-- 🌿 CARRUSEL -->
   <div class="carrusel">
-    <img src="Imagenes/Ma2.jpeg" class="activa" alt="Tomates frescos">
-    <img src="Imagenes/Repollo.jpeg" alt="Chiles">
-    <img src="Imagenes/Ver.jpeg" alt="Verduras variadas">
-    <img src="Imagenes/Tomate2.jpeg" alt="Campo de cultivo">
+    <img src="imagenes/ma2.jpeg" class="activa" alt="Tomates frescos">
+    <img src="imagenes/repollo.jpeg" alt="Repollo fresco">
+    <img src="imagenes/ver.jpeg" alt="Verduras variadas">
+    <img src="imagenes/tomate2.jpeg" alt="Campo de cultivo">
     <div class="controles">
       <button id="prev">&#10094;</button>
       <button id="next">&#10095;</button>
@@ -41,25 +39,25 @@
     <p style="text-align:center;max-width:800px;margin:auto;line-height:1.8">
       Somos una familia turrialbeña dedicada al cultivo y venta de productos frescos. Cultivamos con amor nuestros tomates y chiles, y trabajamos con productores locales para ofrecerte siempre lo mejor del campo costarricense.
     </p>
-    <img src="Imagenes/Henry.jpeg" alt="Cultivo en Turrialba" style="width:100%;border-radius:10px;margin-top:20px;">
-    <img src="Imagenes/Ma.jpeg" alt="Cultivo en Turrialba" style="width:100%;border-radius:10px;margin-top:20px;">
+    <img src="imagenes/henry.jpeg" alt="Cultivo en Turrialba" style="width:100%;border-radius:10px;margin-top:20px;">
+    <img src="imagenes/ma.jpeg" alt="Cultivo en San Antonio" style="width:100%;border-radius:10px;margin-top:20px;">
   </section>
 
   <section id="productos">
     <h2>Productos Destacados</h2>
     <div class="productos">
       <div class="card">
-        <img src="Imagenes/Tomate1.jpeg" alt="Tomate">
+        <img src="imagenes/tomate1.jpeg" alt="Tomate">
         <h3>Tomate</h3>
         <p>Cultivo propio, madurado al sol y lleno de sabor natural.</p>
       </div>
       <div class="card">
-        <img src="Imagenes/Chile.jpg" alt="Chile">
-        <h3>Chile</h3>
+        <img src="imagenes/chile.jpeg" alt="Chile dulce">
+        <h3>Chile dulce</h3>
         <p>Sembrado con cuidado en nuestras tierras de San Antonio.</p>
       </div>
       <div class="card">
-        <img src="Imagenes/Varios.jpg" alt="Verduras frescas">
+        <img src="imagenes/varios.jpeg" alt="Verduras frescas">
         <h3>Verduras Variadas</h3>
         <p>Directas de agricultores locales, siempre frescas y naturales.</p>
       </div>
@@ -77,8 +75,8 @@
   <section id="contacto">
     <h2>Contacto</h2>
     <p style="text-align:center;">📍 San Antonio, Turrialba, Costa Rica</p>
-    <p style="text-align:center;">📞 WhatsApp: +506 8888-8888</p>
-    <p style="text-align:center;">🕓 Lunes a Viernes: 6:00 a.m. – 8:00 p.m. | Sabado-Domingo: 6:00 a.m. – 6:00 p.m.</p>
+    <p style="text-align:center;">📞 WhatsApp: +506 8944-6816</p>
+    <p style="text-align:center;">🕓 Lunes a Viernes: 6:00 a.m. – 8:00 p.m. | Sábado-Domingo: 6:00 a.m. – 6:00 p.m.</p>
   </section>
 
   <footer>
@@ -97,7 +95,6 @@
     const puntosContainer = document.getElementById('puntos');
     let indice = 0;
 
-    // Crear puntos dinámicos
     imagenes.forEach((_, i) => {
       const punto = document.createElement('span');
       punto.classList.add('punto');
