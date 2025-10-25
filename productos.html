@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Productos | Verdulería Henry</title>
+  <link rel="icon" href="Imagenes/Logo.png" type="image/png">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Poppins',sans-serif;background:#f6f3eb url('imagenes/texture.jpg');color:#2f3e2f}
+    header{background:#4a7c59;color:#fff;text-align:center;padding:40px 20px}
+    header h1{font-size:2em}
+    nav{text-align:center;background:#3d694c;padding:15px}
+    nav a{color:#fff;text-decoration:none;margin:0 10px;font-weight:500}
+    nav a:hover{color:#d2f3ce}
+    main{max-width:1100px;margin:40px auto;padding:0 20px}
+    .filtros{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:20px}
+    .filtros input,.filtros select{padding:8px;border-radius:6px;border:1px solid #ccc}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+    .card{background:#fff;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,0.1);overflow:hidden;transition:transform .3s}
+    .card:hover{transform:translateY(-5px)}
+    .card img{width:100%;height:200px;object-fit:cover}
+    .card h3{padding:10px;color:#4a7c59}
+    .card p{padding:0 10px 15px;color:#555}
+    .whatsapp{position:fixed;bottom:20px;right:20px;z-index:1000}
+    .whatsapp img{width:60px;height:60px;cursor:pointer;transition:transform .3s}
+    .whatsapp img:hover{transform:scale(1.1)}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Productos de Verdulería Henry</h1>
+    <p>Frescura, sabor y calidad desde Turrialba</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="#filtros">Buscar</a>
+  </nav>
+
+  <main>
+    <div id="filtros" class="filtros">
+      <input type="text" id="busqueda" placeholder="🔍 Buscar producto...">
+      <select id="categoria">
+        <option value="">Todas las categorías</option>
+        <option value="fruta">Frutas</option>
+        <option value="verdura">Verduras</option>
+        <option value="hortaliza">Hortalizas</option>
+        <option value="hierba">Hierbas</option>
+        <option value="otro">Otros</option>
+      </select>
+    </div>
+
+    <div class="grid" id="listaProductos">
+      <div class="card" data-categoria="verdura">
+        <img src="imagenes/tomate.jpg" alt="Tomate">
+        <h3>Tomate</h3>
+        <p>Cultivo propio, madurado al sol y lleno de sabor.</p>
+      </div>
+      <div class="card" data-categoria="hortaliza">
+        <img src="imagenes/chile.jpg" alt="Chile dulce">
+        <h3>Chile dulce</h3>
+        <p>Sembrado con amor en nuestras tierras de San Antonio.</p>
+      </div>
+      <div class="card" data-categoria="hortaliza">
+        <img src="imagenes/chile.jpg" alt="Chile dulce">
+        <h3>Chile dulce</h3>
+        <p>Sembrado con amor en nuestras tierras de San Antonio.</p>
+      </div>
+      <div class="card" data-categoria="hortaliza">
+        <img src="imagenes/chile.jpg" alt="Chile dulce">
+        <h3>Chile dulce</h3>
+        <p>Sembrado con amor en nuestras tierras de San Antonio.</p>
+      </div>
+      <div class="card" data-categoria="hortaliza">
+        <img src="imagenes/chile.jpg" alt="Chile dulce">
+        <h3>Chile dulce</h3>
+        <p>Sembrado con amor en nuestras tierras de San Antonio.</p>
+      </div>
+      <div class="card" data-categoria="hortaliza">
+        <img src="imagenes/chile.jpg" alt="Chile dulce">
+        <h3>Chile dulce</h3>
+        <p>Sembrado con amor en nuestras tierras de San Antonio.</p>
+      </div>
+      <div class="card" data-categoria="verdura">
+        <img src="imagenes/verduras.jpg" alt="Lechuga">
+        <h3>Lechuga</h3>
+        <p>Fresca, crujiente y cultivada por productores locales.</p>
+      </div>
+      <div class="card" data-categoria="fruta">
+        <img src="https://cdn.pixabay.com/photo/2018/03/10/12/27/pineapple-3215013_1280.jpg" alt="Piña">
+        <h3>Piña</h3>
+        <p>Dulce y jugosa, directo desde la zona atlántica.</p>
+      </div>
+      <div class="card" data-categoria="hierba">
+        <img src="https://cdn.pixabay.com/photo/2018/04/09/23/53/cilantro-3308792_1280.jpg" alt="Cilantro">
+        <h3>Cilantro</h3>
+        <p>Aromático y fresco, ideal para darle vida a tus platillos.</p>
+      </div>
+      <div class="card" data-categoria="otro">
+        <img src="https://cdn.pixabay.com/photo/2017/01/20/15/06/ginger-1990907_1280.jpg" alt="Jengibre">
+        <h3>Jengibre</h3>
+        <p>Natural y saludable, perfecto para infusiones.</p>
+      </div>
+    </div>
+  </main>
+
+  <div class="whatsapp">
+    <a href="https://wa.me/50688888888?text=Hola%20Verdulería%20Henry%20👋,%20me%20gustaría%20hacer%20un%20pedido." target="_blank">
+      <img src="imagenes/whatsapp.png" alt="WhatsApp">
+    </a>
+  </div>
+
+  <script>
+    const busqueda = document.getElementById('busqueda');
+    const categoria = document.getElementById('categoria');
+    const productos = document.querySelectorAll('.card');
+
+    function filtrar() {
+      const texto = busqueda.value.toLowerCase();
+      const cat = categoria.value;
+
+      productos.forEach(p => {
+        const nombre = p.querySelector('h3').textContent.toLowerCase();
+        const catProd = p.dataset.categoria;
+        const visible = (nombre.includes(texto) || texto === '') && (catProd === cat || cat === '');
+        p.style.display = visible ? 'block' : 'none';
+      });
+    }
+
+    busqueda.addEventListener('input', filtrar);
+    categoria.addEventListener('change', filtrar);
+  </script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verdulería Henry | Turrialba</title>
+  <link rel="icon" href="Imagenes/Logo3.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+  <style>
+  </style>
+</head>
+<body>
+  <header>
+    <img src="Imagenes/Logo3.png" alt="Logo Verdulería Henry">
+    <h1>Verdulería Henry</h1>
+    <p>Del campo a tu mesa, con el sabor de San Antonio de Turrialba</p>
+  </header>
+
+  <!-- 🌿 CARRUSEL -->
+  <div class="carrusel">
+    <img src="Imagenes/Ma2.jpeg" class="activa" alt="Tomates frescos">
+    <img src="Imagenes/Repollo.jpeg" alt="Chiles">
+    <img src="Imagenes/Ver.jpeg" alt="Verduras variadas">
+    <img src="Imagenes/Tomate2.jpeg" alt="Campo de cultivo">
+    <div class="controles">
+      <button id="prev">&#10094;</button>
+      <button id="next">&#10095;</button>
+    </div>
+  </div>
+  <div class="puntos" id="puntos"></div>
+
+  <nav>
+    <a href="#quienes">Quiénes Somos</a>
+    <a href="#productos">Productos</a>
+    <a href="#novedades">Novedades</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
+  <section id="quienes">
+    <h2>Quiénes Somos</h2>
+    <p style="text-align:center;max-width:800px;margin:auto;line-height:1.8">
+      Somos una familia turrialbeña dedicada al cultivo y venta de productos frescos. Cultivamos con amor nuestros tomates y chiles, y trabajamos con productores locales para ofrecerte siempre lo mejor del campo costarricense.
+    </p>
+    <img src="Imagenes/Henry.jpeg" alt="Cultivo en Turrialba" style="width:100%;border-radius:10px;margin-top:20px;">
+    <img src="Imagenes/Ma.jpeg" alt="Cultivo en Turrialba" style="width:100%;border-radius:10px;margin-top:20px;">
+  </section>
+
+  <section id="productos">
+    <h2>Productos Destacados</h2>
+    <div class="productos">
+      <div class="card">
+        <img src="Imagenes/Tomate1.jpeg" alt="Tomate">
+        <h3>Tomate</h3>
+        <p>Cultivo propio, madurado al sol y lleno de sabor natural.</p>
+      </div>
+      <div class="card">
+        <img src="Imagenes/Chile.jpg" alt="Chile">
+        <h3>Chile</h3>
+        <p>Sembrado con cuidado en nuestras tierras de San Antonio.</p>
+      </div>
+      <div class="card">
+        <img src="Imagenes/Varios.jpg" alt="Verduras frescas">
+        <h3>Verduras Variadas</h3>
+        <p>Directas de agricultores locales, siempre frescas y naturales.</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:30px;">
+      <a href="productos.html" style="color:#fff;background:#4a7c59;padding:10px 25px;border-radius:8px;text-decoration:none;">Ver más productos</a>
+    </div>
+  </section>
+
+  <section id="novedades">
+    <h2>Novedades</h2>
+    <p style="text-align:center;">🌶️ ¡Nueva cosecha de chiles dulces y tomates frescos de temporada! 🍅</p>
+  </section>
+
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <p style="text-align:center;">📍 San Antonio, Turrialba, Costa Rica</p>
+    <p style="text-align:center;">📞 WhatsApp: +506 8888-8888</p>
+    <p style="text-align:center;">🕓 Lunes a Viernes: 6:00 a.m. – 8:00 p.m. | Sabado-Domingo: 6:00 a.m. – 6:00 p.m.</p>
+  </section>
+
+  <footer>
+    <p>© 2025 Verdulería Henry · Cartago, Turrialba</p>
+    <p>Seguinos en Instagram y Facebook</p>
+  </footer>
+
+  <div class="whatsapp">
+    <a href="https://wa.me/50689446816?text=Hola%20Verdulería%20Henry%20👋,%20me%20gustaría%20hacer%20un%20pedido." target="_blank">
+      <img src="imagenes/whatsapp.png" alt="WhatsApp">
+    </a>
+  </div>
+
+  <script>
+    const imagenes = document.querySelectorAll('.carrusel img');
+    const puntosContainer = document.getElementById('puntos');
+    let indice = 0;
+
+    // Crear puntos dinámicos
+    imagenes.forEach((_, i) => {
+      const punto = document.createElement('span');
+      punto.classList.add('punto');
+      if(i === 0) punto.classList.add('activo');
+      punto.addEventListener('click', () => mostrarImagen(i));
+      puntosContainer.appendChild(punto);
+    });
+
+    const puntos = document.querySelectorAll('.punto');
+    const prev = document.getElementById('prev');
+    const next = document.getElementById('next');
+
+    function mostrarImagen(i) {
+      imagenes[indice].classList.remove('activa');
+      puntos[indice].classList.remove('activo');
+      indice = (i + imagenes.length) % imagenes.length;
+      imagenes[indice].classList.add('activa');
+      puntos[indice].classList.add('activo');
+    }
+
+    prev.addEventListener('click', () => mostrarImagen(indice - 1));
+    next.addEventListener('click', () => mostrarImagen(indice + 1));
+
+    setInterval(() => mostrarImagen(indice + 1), 5000);
+  </script>
+</body>
+</html>
